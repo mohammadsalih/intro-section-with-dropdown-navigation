@@ -67,7 +67,7 @@
     padding: 0;
 
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 2rem;
   }
   .hero-content {
     padding: 2.4rem;
