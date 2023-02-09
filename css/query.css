@@ -1,0 +1,79 @@
+/* ********************************************/
+/* below 960px : for  tablets*/
+/* ********************************************/
+@media screen and (max-width: 68.75em) {
+  .header {
+    padding: 1.6rem 3.2rem;
+  }
+  .main-nav {
+    padding: 9.6rem 3.2rem;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 4.8rem;
+
+    width: 60%;
+    height: 100vh;
+
+    transform: translateX(100%);
+
+    background-color: #fff;
+
+    transition: transform ease 0.4s;
+  }
+  .main-nav-cta-container {
+    flex-direction: column;
+  }
+
+  .main-nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4.8rem;
+  }
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-size: 2rem;
+    width: 100%;
+    text-align: center;
+  }
+  .menu-btn {
+    display: block;
+  }
+  .open-nav {
+    transform: translateX(0%);
+  }
+
+  .dropdown {
+    padding: 0;
+    position: relative;
+    top: auto;
+    border-radius: 0;
+    transform: translateX(25%);
+    box-shadow: none;
+  }
+  .dropdown-open {
+    padding-top: 1.8rem;
+  }
+  .container {
+    padding: 0;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .hero-content {
+    padding: 4.8rem;
+  }
+  .hero-img-container {
+    grid-row: 1 / 2;
+  }
+  .hero-img {
+    width: 100%;
+  }
+}

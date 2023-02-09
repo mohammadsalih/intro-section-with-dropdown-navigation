@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <!-- inserting font family from google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- --------------------------------------- -->
+
+    <!-- inserting the css style file -->
+    <!-- styling css file -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- media queriys css file -->
+    <link rel="stylesheet" href="css/query.css" />
+    <!-- --------------------------------------- -->
+
+    <title>
+      mohammad omer | Intro section with dropdown navigation
+    </title>
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="#">
+        <img
+          src="images/logo.svg"
+          alt="snap logo"
+          class="header-logo"
+        />
+      </a>
+
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li class="dropdown-container">
+            <a
+              href="#"
+              class="main-nav-link dropdown-btn"
+              onclick="openDropdown(event)"
+              >Features
+              <ion-icon name="chevron-down-outline"></ion-icon
+            ></a>
+
+            <ul class="dropdown">
+              <li>
+                <a href="#" class="dropdown-link">
+                  <ion-icon name="list-outline"></ion-icon>
+                  Tofo List
+                </a>
+              </li>
+              <li>
+                <a href="#" class="dropdown-link">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  Calendar
+                </a>
+              </li>
+              <li>
+                <a href="#" class="dropdown-link">
+                  <ion-icon name="notifications-outline"></ion-icon>
+                  Reminders
+                </a>
+              </li>
+              <li>
+                <a href="#" class="dropdown-link">
+                  <ion-icon name="time-outline"></ion-icon>
+                  Planning
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown-container">
+            <a
+              href="#"
+              class="main-nav-link dropdown-btn"
+              onclick="openDropdown(event)"
+              >Company
+              <ion-icon name="chevron-down-outline"></ion-icon
+            ></a>
+
+            <ul class="dropdown">
+              <li>
+                <a href="#" class="dropdown-link"> History </a>
+              </li>
+              <li>
+                <a href="#" class="dropdown-link"> Our Team </a>
+              </li>
+              <li>
+                <a href="#" class="dropdown-link"> Features </a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="#" class="main-nav-link">careers</a>
+          </li>
+
+          <li>
+            <a href="#" class="main-nav-link">About</a>
+          </li>
+        </ul>
+
+        <div class="main-nav-cta-container">
+          <a href="#" class="main-nav-link">Login</a>
+          <a href="#" class="main-nav-link main-nav-cta">Register</a>
+        </div>
+      </nav>
+
+      <button class="menu-btn" onclick="open_nav()">
+        <ion-icon name="menu-outline" class="menu-icon"></ion-icon>
+        <ion-icon
+          name="close-outline"
+          class="menu-icon icon-hide"
+        ></ion-icon>
+      </button>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="hero">
+          <div class="hero-content">
+            <h1 class="hero-header">
+              Make <br />
+              remote work
+            </h1>
+
+            <p class="hero-paragraph">
+              Get your team in sync, no matter your location.
+              Streamline processes, create team rituals, and watch
+              productivity soar.
+            </p>
+
+            <a href="#" class="btn"> Learn more </a>
+
+            <div class="clinte-logos">
+              <img
+                src="images/client-databiz.svg"
+                alt="clinte logo"
+              />
+              <img
+                src="images/client-audiophile.svg"
+                alt="clinte logo"
+              />
+              <img src="images/client-meet.svg" alt="clinte logo" />
+              <img src="images/client-maker.svg" alt="clinte logo" />
+            </div>
+          </div>
+          <div class="hero-img-container">
+            <img
+              src="images/image-hero-desktop.png"
+              class="hero-img"
+              alt="hero image"
+            />
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!--   -->
+
+    <!-- java script -->
+    <script>
+      // this function is to toggle the classes thet we need to make the navbar funcionable
+      function open_nav() {
+        const nav_icon = document.getElementsByClassName("menu-icon");
+        const nav = document.getElementsByClassName("main-nav");
+
+        for (i = 0; i < nav_icon.length; i++) {
+          nav_icon[i].classList.toggle("icon-hide");
+        }
+        nav[0].classList.toggle("open-nav");
+      }
+
+      // a function to toggle the drop down
+      const dropdownBtn =
+        document.getElementsByClassName(".dropdown-btn");
+      function openDropdown(event) {
+        event.target.nextElementSibling.classList.toggle(
+          "dropdown-open"
+        );
+      }
+      // this function is to remove the navigation when the user click on one of the links
+      function close_dropdown() {
+        const all_dropdown_links =
+          document.querySelectorAll(".dropdown-link");
+        all_dropdown_links.forEach(function (link) {
+          link.addEventListener("click", function () {
+            link.parentElement.parentElement.classList.toggle(
+              "dropdown-open"
+            );
+          });
+        });
+      }
+      // to change the hero image then the screen is maller then 1100 px
+      const element = document.querySelector(".hero-img");
+
+      function updateElement() {
+        if (window.innerWidth < 1100) {
+          element.src = "images/image-hero-mobile.png";
+        } else {
+          element.src = "images/image-hero-desktop.png";
+        }
+      }
+
+      window.addEventListener("resize", updateElement);
+
+      // Call the function initially to make sure the element is updated on page load
+      updateElement();
+      // /////////////////////
+      // calling the functions
+      close_dropdown();
+    </script>
+
+    <!-- to install icon icons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
